@@ -1,0 +1,9 @@
+@startuml
+class NotificationDbContext {
+    + NotificationDbContext(options:DbContextOptions<NotificationDbContext>)
+}
+class "DbSet`1"<T> {
+}
+DbContext <|-- NotificationDbContext
+NotificationDbContext --> "Notifications<Notification>" "DbSet`1"
+@enduml

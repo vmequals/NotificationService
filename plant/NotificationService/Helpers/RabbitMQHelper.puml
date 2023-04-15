@@ -1,0 +1,8 @@
+@startuml
+class RabbitMqHelper {
+    + RabbitMqHelper(hostName:string)
+    + SendMessageToExchange(exchange:string, routingKey:string, message:T) : void
+    + Dispose() : void
+}
+IRabbitMqHelper <|-- RabbitMqHelper
+@enduml

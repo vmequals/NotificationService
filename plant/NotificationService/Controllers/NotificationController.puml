@@ -1,0 +1,8 @@
+@startuml
+class NotificationsController {
+    + NotificationsController(context:NotificationDbContext, rabbitMq:IRabbitMqHelper)
+    + <<async>> CreateNotification(notification:Notification) : Task<IActionResult>
+    + <<async>> UpdateStatus(id:int, status:string) : Task<IActionResult>
+}
+ControllerBase <|-- NotificationsController
+@enduml

@@ -1,0 +1,9 @@
+@startuml
+class Notification {
+    + Id : int <<get>> <<set>>
+    + Title : string <<get>> <<set>>
+    + Message : string <<get>> <<set>>
+    + Status : string <<get>> <<set>>
+}
+Notification --> "CreatedAt" DateTime
+@enduml

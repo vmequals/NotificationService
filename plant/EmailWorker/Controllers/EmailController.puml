@@ -1,0 +1,7 @@
+@startuml
+class EmailController {
+    + EmailController(emailService:IEmailService)
+    + <<async>> SendEmail(emailDto:EmailDto) : Task<IActionResult>
+}
+ControllerBase <|-- EmailController
+@enduml

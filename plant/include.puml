@@ -1,0 +1,5 @@
+@startuml
+!include .\\.\EmailWorker\Program.puml
+!include .\\.\NotificationConsumer\Program.puml
+!include .\\.\NotificationService\Program.puml
+@enduml

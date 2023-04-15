@@ -1,0 +1,28 @@
+@startuml
+class EmailController {
+    + EmailController(emailService:IEmailService)
+    + <<async>> SendEmail(emailDto:EmailDto) : Task<IActionResult>
+}
+ControllerBase <|-- EmailController
+class EmailDto {
+    + Recipient : string <<get>> <<set>>
+    + Subject : string <<get>> <<set>>
+    + Body : string <<get>> <<set>>
+}
+class EmailMessage {
+    + FromAddress : string <<get>> <<set>>
+    + Recipient : string <<get>> <<set>>
+    + Subject : string <<get>> <<set>>
+    + Body : string <<get>> <<set>>
+}
+class EmailService {
+    + EmailService(config:IConfiguration)
+    + <<async>> SendEmailAsync(receiverEmail:string, subject:string, message:string) : Task
+    + ConsumeMessages() : void
+    + Dispose() : void
+}
+IEmailService <|-- EmailService
+interface IEmailService {
+}
+IDisposable <|-- IEmailService
+@enduml

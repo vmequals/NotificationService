@@ -1,0 +1,9 @@
+@startuml
+class EmailService {
+    + EmailService(config:IConfiguration)
+    + <<async>> SendEmailAsync(receiverEmail:string, subject:string, message:string) : Task
+    + ConsumeMessages() : void
+    + Dispose() : void
+}
+IEmailService <|-- EmailService
+@enduml

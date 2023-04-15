@@ -1,0 +1,7 @@
+@startuml
+class NotificationServiceImpl {
+    + NotificationServiceImpl(context:NotificationDbContext, rabbitMq:IRabbitMqHelper)
+    + <<async>> CreateNotificationAsync(notification:Notification) : Task<Notification>
+}
+INotificationService <|-- NotificationServiceImpl
+@enduml

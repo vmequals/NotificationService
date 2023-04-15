@@ -1,0 +1,6 @@
+@startuml
+class NotificationConsumerService {
+    + NotificationConsumerService(hubContext:IHubContext<NotificationsHub>, rabbitMQConfiguration:IOptions<RabbitMQConfiguration>, logger:ILogger<NotificationConsumerService>)
+}
+BackgroundService <|-- NotificationConsumerService
+@enduml

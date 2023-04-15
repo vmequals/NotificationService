@@ -1,0 +1,8 @@
+@startuml
+class EmailMessage {
+    + FromAddress : string <<get>> <<set>>
+    + Recipient : string <<get>> <<set>>
+    + Subject : string <<get>> <<set>>
+    + Body : string <<get>> <<set>>
+}
+@enduml

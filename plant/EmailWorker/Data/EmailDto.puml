@@ -1,0 +1,7 @@
+@startuml
+class EmailDto {
+    + Recipient : string <<get>> <<set>>
+    + Subject : string <<get>> <<set>>
+    + Body : string <<get>> <<set>>
+}
+@enduml

@@ -1,0 +1,5 @@
+@startuml
+class NotificationHub {
+}
+Hub <|-- NotificationHub
+@enduml

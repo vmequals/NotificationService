@@ -1,0 +1,33 @@
+@startuml
+class NotificationDbContext {
+    + NotificationDbContext(options:DbContextOptions<NotificationDbContext>)
+}
+class "DbSet"<T> {
+}
+DbContext <|-- NotificationDbContext
+NotificationDbContext --> "Notifications<Notification>"
+interface IRabbitMqHelper {
+}
+IDisposable <|-- IRabbitMqHelper
+class RabbitMqHelper {
+    + RabbitMqHelper(hostName:string)
+    + SendMessageToExchange(exchange:string, routingKey:string, message:T) : void
+    + Dispose() : void
+}
+IRabbitMqHelper <|-- RabbitMqHelper
+class Notification {
+    + Id : int <<get>> <<set>>
+    + Title : string <<get>> <<set>>
+    + Message : string <<get>> <<set>>
+    + Status : string <<get>> <<set>>
+    + ResponsibleUserOrGroup : string <<get>> <<set>>
+}
+Notification --> "CreatedAt" DateTime
+interface INotificationService {
+}
+class NotificationServiceImpl {
+    + NotificationServiceImpl(context:NotificationDbContext, rabbitMq:IRabbitMqHelper)
+    + <<async>> CreateNotificationAsync(notification:Notification) : Task<Notification>
+}
+INotificationService <|-- NotificationServiceImpl
+@enduml

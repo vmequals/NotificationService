@@ -1,0 +1,6 @@
+@startuml
+class RabbitMQConfiguration {
+    + Hostname : string <<get>> <<set>>
+    + QueueName : string <<get>> <<set>>
+}
+@enduml
